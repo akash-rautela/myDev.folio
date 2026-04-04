@@ -42,7 +42,7 @@ const StatsSection = () => {
               transition={{ duration: 0.5, delay: i * 0.1 }}
               className="h-full"
             >
-              <GlowCard className="h-full min-h-72 flex flex-col items-center justify-between text-center group hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 p-6">
+              <GlowCard className="w-full h-full min-h-80 flex flex-col items-center justify-between text-center group hover:scale-105 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 p-6">
 
                 {/* Icon */}
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
