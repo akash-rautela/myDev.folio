@@ -2,6 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ExternalLink, Github } from 'lucide-react';
 import GlowCard from '@/components/GlowCard';
+import Swal from 'sweetalert2';
 
 type ProjectCategory = 'all' | 'web' | 'aiml' | 'data';
 
@@ -74,7 +75,7 @@ const projects: Project[] = [
   {
     title: 'Amazon Landing Page Clone',
     description: 'Built an Amazon landing page clone using React, focusing on responsive design and UI replication.',
-    stack: ['React', 'JavaScript', 'HTML', 'CSS','Bootstrap css'],
+    stack: ['React', 'JavaScript', 'HTML', 'CSS', 'Bootstrap css'],
     category: 'web',
     github: 'https://github.com/akash-rautela/amazon-clone',
     demo: 'https://amazon-clone-r6jj.vercel.app/'
@@ -89,6 +90,33 @@ const filters: { key: ProjectCategory; label: string }[] = [
 ];
 
 const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+  const handleDemoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (project.demo === '#') {
+      e.preventDefault();
+
+      Swal.fire({
+        title: 'Demo Unavailable',
+        html: 'This project is not deployed yet.<br><span style="font-size: 0.95em; color: #d1d5db;">You can explore the complete code on GitHub.</span>',
+        background: '#0f172a',
+        color: '#f3f4f6',
+        confirmButtonText: '📌 View on GitHub',
+        cancelButtonText: 'Close',
+        showCancelButton: true,
+        allowOutsideClick: true,
+        allowEscapeKey: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          window.open(project.github, '_blank');
+        }
+      });
+
+    } else {
+      // ✅ open demo if available
+      e.preventDefault();
+      window.open(project.demo, '_blank');
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
@@ -110,7 +138,11 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           <a target='_blank' rel="noopener noreferrer" href={project.github} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
             <Github size={14} /> Code
           </a>
-          <a target='_blank' rel="noopener noreferrer" href={project.demo} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <a
+            href={project.demo}
+            onClick={handleDemoClick}
+            className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+          >
             <ExternalLink size={14} /> Demo
           </a>
         </div>
@@ -138,9 +170,8 @@ const ProjectsSection = () => {
             <button
               key={f.key}
               onClick={() => setActive(f.key)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
-                active === f.key ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-              }`}
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${active === f.key ? 'bg-primary text-primary-foreground' : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
+                }`}
             >
               {f.label}
             </button>
