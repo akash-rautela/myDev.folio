@@ -63,7 +63,7 @@ With experience across frontend, backend, and machine learning, I combine techni
           </div>
         </motion.div>
 
-        <div className="grid sm:grid-cols-3 gap-6">
+        {/* <div className="grid sm:grid-cols-3 gap-6">
           {highlights.map((item, i) => (
             <motion.div
               key={item.label}
@@ -80,7 +80,7 @@ With experience across frontend, backend, and machine learning, I combine techni
               </GlowCard>
             </motion.div>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
