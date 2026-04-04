@@ -68,8 +68,8 @@ const projects: Project[] = [
     description: 'Designed and developed a personal portfolio using React, showcasing projects, skills, and interactive UI with responsive design and modern animations.',
     stack: ['React', 'Tailwind CSS', 'Bootstrap', 'EmailJS', 'OpenAI API'],
     category: 'web',
-    github: '#',
-    demo: '#',
+    github: 'https://github.com/akash-rautela/myDev.folio',
+    demo: 'https://my-dev-folio-six.vercel.app/',
   },
   {
     title: 'Amazon Landing Page Clone',
