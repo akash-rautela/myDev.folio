@@ -107,10 +107,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
           ))}
         </div>
         <div className="flex gap-3">
-          <a target='_blank' href={project.github} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <a target='_blank' rel="noopener noreferrer" href={project.github} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
             <Github size={14} /> Code
           </a>
-          <a target='_blank' href={project.demo} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
+          <a target='_blank' rel="noopener noreferrer" href={project.demo} className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-foreground transition-colors">
             <ExternalLink size={14} /> Demo
           </a>
         </div>
