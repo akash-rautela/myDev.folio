@@ -17,7 +17,7 @@
 
 ## 🌐 Live Demo
 
-👉 _Add your deployed link here (Vercel / Netlify)_
+👉https://my-dev-folio-six.vercel.app/
 
 ---
 
@@ -61,7 +61,7 @@ Unlike basic portfolios, **myDev.folio** is built with:
 
 ### 1️⃣ Clone the repo
 
-```bash
+
 git clone https://github.com/akash-rautela/myDev.folio.git
 2️⃣ Install dependencies
 npm install
