@@ -1,108 +1,143 @@
 # 🚀 myDev.folio — Developer Portfolio
 
 <p align="center">
-  <b>A modern, responsive & AI-enhanced developer portfolio</b><br/>
-  Built to showcase projects, skills & personality with style ⚡
+  <b>A modern, responsive developer portfolio built with React, Tailwind CSS, and motion-driven UI.</b><br/>
+  Designed to present your projects, skills, and contact details in a polished single-page experience.
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/React-Frontend-blue?logo=react" />
-  <img src="https://img.shields.io/badge/TailwindCSS-Styling-38B2AC?logo=tailwind-css" />
-  <img src="https://img.shields.io/badge/FramerMotion-Animations-black?logo=framer" />
-  <img src="https://img.shields.io/badge/Status-Active-success" />
-  <img src="https://img.shields.io/github/stars/akash-rautela/myDev.folio?style=social" />
+  <img src="https://img.shields.io/badge/Vite-Dev_Server-brightgreen?logo=vite" alt="Vite" />
+  <img src="https://img.shields.io/badge/React-Frontend-blue?logo=react" alt="React" />
+  <img src="https://img.shields.io/badge/TailwindCSS-Styling-38B2AC?logo=tailwind-css" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/TypeScript-Static_Typing-blue?logo=typescript" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Status-Active-success" alt="Status" />
 </p>
 
 ---
 
 ## 🌐 Live Demo
 
-👉https://my-dev-folio-six.vercel.app/
+[https://my-dev-folio-six.vercel.app/](https://my-dev-folio-six.vercel.app/)
 
 ---
 
-## ✨ Why this Portfolio?
+## ✨ Overview
 
-Unlike basic portfolios, **myDev.folio** is built with:
+**myDev.folio** is a polished developer portfolio template featuring:
 
-- 🎯 **Clean UI + Smooth UX**
-- ⚡ **High performance & responsiveness**
-- 🎨 **Modern animations (Framer Motion)**
-- 🌙 **Dark/Light mode support**
-- 🧠 **Structured project showcasing**
-- 💡 **Scalable architecture**
+- Smooth, responsive layout for desktop and mobile
+- Animated hero section with 3D tech visuals
+- Projects showcase with clean cards
+- Skills and experience sections
+- Contact section with email-ready form
+- Theme support and modern UI animations
 
 ---
 
-## 📸 Preview
+## 📸 Screenshots
 
-> Add screenshots here (VERY IMPORTANT)
+<p align="center">
+  <img src="screenshots/home.png" alt="Portfolio home preview" width="720" />
+</p>
 
-
-/screenshots/home.png
-/screenshots/projects.png
-
+<p align="center">
+  <img src="screenshots/projects.png" alt="Projects section preview" width="720" />
+</p>
 
 ---
 
 ## 🛠️ Tech Stack
 
 | Category       | Technology        |
-|---------------|-----------------|
-| Frontend      | React.js        |
-| Styling       | Tailwind CSS    |
-| Animations    | Framer Motion   |
-| Icons         | Lucide React    |
-| Version Ctrl  | Git + GitHub    |
+|---------------|-------------------|
+| Framework      | React 18          |
+| Build Tool     | Vite              |
+| Styling        | Tailwind CSS      |
+| Animations     | Framer Motion     |
+| 3D Graphics    | React Three Fiber |
+| Icons          | Lucide React      |
+| Forms          | EmailJS           |
+| Routing        | React Router DOM  |
 
 ---
 
-## ⚙️ Getting Started
+## 🚀 Features
 
-### 1️⃣ Clone the repo
+- Fully responsive portfolio layout
+- Animated sections and page transitions
+- Interactive project and skills sections
+- Theme-enabled UI
+- Lightweight Vite development workflow
+- Clean component-based structure
 
+---
 
+## 🧰 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ or later
+- npm
+
+### Setup
+
+```bash
 git clone https://github.com/akash-rautela/myDev.folio.git
-2️⃣ Install dependencies
+cd myDev.folio
 npm install
-3️⃣ Run locally
+```
+
+### Run Locally
+
+```bash
 npm run dev
-📂 Folder Structure
+```
+
+Then open the local URL shown in the terminal.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+---
+
+## 📁 Project Structure
+
+```text
 src/
- ├── components/
- ├── pages/
- ├── assets/
- ├── hooks/
- └── utils/
-🚧 Future Enhancements
-🧠 AI-powered portfolio suggestions
-📝 Blog integration
-📊 Visitor analytics
-🌍 Multi-language support
-💼 Use Case
+  ├── components/
+  ├── hooks/
+  ├── lib/
+  ├── pages/
+  ├── App.tsx
+  ├── main.tsx
+  └── index.css
+```
 
-Perfect for:
+---
 
-Developers building personal brand
-Students applying for internships/jobs
-Freelancers showcasing work
-🤝 Contributing
+## 🤝 Contributing
 
-Contributions are welcome!
+Contributions are welcome! To contribute:
 
-Fork the repo
-Create a new branch
-Make your changes
-Submit a PR
-📬 Connect With Me
-💻 GitHub: https://github.com/akash-rautela
-🔗 LinkedIn: Add your link
-⭐ Support
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Open a pull request
 
-If you like this project:
+---
 
-🌟 Star the repo
-🍴 Fork it
-📢 Share it
+## 📬 Connect
 
-<p align="center"> Made with ❤️ by Akash Rautela </p> ```
+- GitHub: [akash-rautela](https://github.com/akash-rautela)
+- Live Demo: [https://my-dev-folio-six.vercel.app/](https://my-dev-folio-six.vercel.app/)
+
+<p align="center">Made with ❤️ by Akash Rautela</p>
