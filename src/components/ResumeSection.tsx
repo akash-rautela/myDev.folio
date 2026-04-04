@@ -43,7 +43,7 @@ const ResumeSection = () => {
             transition={{ duration: 0.5 }}
             className="w-full max-w-sm"
           >
-            <GlowCard className="p-8 h-full flex flex-col items-center text-center">
+            <GlowCard className="p-8 h-full min-h-96 flex flex-col items-center text-center">
 
               {/* Icon */}
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">

@@ -124,7 +124,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
     >
-      <GlowCard className="flex flex-col h-full">
+      <GlowCard className="flex flex-col h-full min-h-80">
         <h3 className="text-lg font-bold mb-2">{project.title}</h3>
         <p className="text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-5">
