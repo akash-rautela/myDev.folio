@@ -1,86 +1,119 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { FileText, Download } from 'lucide-react';
+import { FileText, Download, ExternalLink, Sparkles } from 'lucide-react';
 import GlowCard from '@/components/GlowCard';
 
 const resume = {
-  title: 'Full Stack Developer & Machine Learning Enthusiast',
+  title: 'Full Stack Developer & ML Enthusiast',
   description:
-    'Developer and data enthusiast with experience in building scalable web applications and applying machine learning techniques to solve real-world problems. Skilled in React, Node.js, and Python, with a strong focus on clean code, performance, and user-centric design.',
+    'I build scalable web apps and intelligent data solutions using React, Node.js, and Python — focused on performance, clean architecture, and real-world impact.',
   viewLink: '/dsResume.pdf',
   downloadLink: '/dsResume.pdf',
 };
+
+const stats = [
+  { label: 'Projects', value: '10+' },
+  { label: 'Tech Stack', value: '15+' },
+  { label: 'Experience', value: 'Fresher' },
+];
 
 const ResumeSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-10 px-6" ref={ref}>
-      <div className="container mx-auto max-w-4xl">
+    <section className="py-16 px-6 relative overflow-hidden" ref={ref}>
+      
+      {/* 🔥 Background Glow */}
+      <div className="absolute inset-0 flex justify-center pointer-events-none">
+        <div className="w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="container mx-auto max-w-5xl relative z-10">
+        
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-8"
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-            <FileText size={24} className="text-primary" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs mb-4">
+            <Sparkles size={14} /> Resume
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-bold mb-2">Resume</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3">
+            My Professional Snapshot
+          </h2>
 
-          {/* ✅ Updated subtitle */}
-          <p className="text-muted-foreground text-sm sm:text-base">
-            A snapshot of my skills, projects, and experience
+          <p className="text-muted-foreground max-w-xl mx-auto">
+            A quick overview of my skills, projects, and experience.
           </p>
         </motion.div>
 
-        <div className="flex justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="w-full max-w-sm"
-          >
-            <GlowCard className="p-8 h-full min-h-96 flex flex-col items-center text-center">
+        {/* Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.95 }}
+          animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto"
+        >
+          <GlowCard className="p-8 rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_0_50px_rgba(255,200,0,0.15)]">
+            
+            {/* Icon */}
+            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
+              <FileText size={26} className="text-primary" />
+            </div>
 
-              {/* Icon */}
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                <FileText size={24} className="text-primary" />
-              </div>
+            {/* Title */}
+            <h3 className="text-xl font-semibold text-center mb-3">
+              {resume.title}
+            </h3>
 
-              {/* Title */}
-              <h3 className="text-lg font-semibold mb-2">{resume.title}</h3>
+            {/* Description */}
+            <p className="text-muted-foreground text-center text-sm mb-6 leading-relaxed">
+              {resume.description}
+            </p>
 
-              {/* Description */}
-              <p className="text-muted-foreground text-sm mb-6 flex-1">
-                {resume.description}
-              </p>
+            {/* 🔥 Stats Row */}
+            <div className="flex justify-center gap-6 mb-8 flex-wrap">
+              {stats.map((item) => (
+                <div key={item.label} className="text-center">
+                  <p className="text-lg font-semibold text-primary">
+                    {item.value}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-              {/* Buttons */}
-              <div className="flex flex-col xs:flex-row gap-3 w-full justify-center">
-                <a
-                  href={resume.viewLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg border border-border text-foreground font-medium text-sm hover:border-primary/50 transition-all"
-                >
-                  <FileText size={15} /> View Resume
-                </a>
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              
+              {/* Primary CTA */}
+              <a
+                href={resume.downloadLink}
+                download
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold text-sm hover:brightness-110 transition-all"
+              >
+                <Download size={16} /> Download Resume
+              </a>
 
-                <a
-                  href={resume.downloadLink}
-                  download
-                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:brightness-110 transition-all"
-                >
-                  <Download size={15} /> Download PDF
-                </a>
-              </div>
+              {/* Secondary CTA */}
+              <a
+                href={resume.viewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-semibold text-sm hover:border-primary/50 transition-all"
+              >
+                <ExternalLink size={16} /> View Online
+              </a>
 
-            </GlowCard>
-          </motion.div>
-        </div>
+            </div>
+          </GlowCard>
+        </motion.div>
       </div>
     </section>
   );
