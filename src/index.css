@@ -26,14 +26,6 @@
     --input: 214 32% 91%;
     --ring: 217 91% 60%;
     --radius: 0.75rem;
-    --sidebar-background: 210 40% 98%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 40% 96%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 214 32% 91%;
-    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
@@ -56,14 +48,6 @@
     --border: 220 12% 16%;
     --input: 220 12% 16%;
     --ring: 38 92% 50%;
-    --sidebar-background: 220 15% 8%;
-    --sidebar-foreground: 40 15% 92%;
-    --sidebar-primary: 38 92% 50%;
-    --sidebar-primary-foreground: 30 10% 8%;
-    --sidebar-accent: 220 12% 14%;
-    --sidebar-accent-foreground: 40 15% 85%;
-    --sidebar-border: 220 12% 16%;
-    --sidebar-ring: 38 92% 50%;
   }
 }
 
@@ -71,12 +55,26 @@
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground font-body antialiased;
-  }
+
   html {
     scroll-behavior: smooth;
   }
+
+  body {
+    @apply text-foreground font-body antialiased;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 200, 0, 0.15), transparent 40%),
+      radial-gradient(circle at 80% 0%, rgba(0, 150, 255, 0.1), transparent 40%),
+      hsl(var(--background));
+  }
+
+  .dark body {
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255, 200, 0, 0.2), transparent 40%),
+      radial-gradient(circle at 80% 0%, rgba(0, 150, 255, 0.15), transparent 40%),
+      hsl(var(--background));
+  }
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display;
   }
@@ -86,13 +84,26 @@
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-amber-400;
   }
+
   .glass {
-    @apply bg-card/40 backdrop-blur-2xl border border-border/30 shadow-lg;
+    @apply bg-card/60 backdrop-blur-2xl border border-border/40 shadow-lg;
   }
+
   .dark .glass {
-    @apply bg-card/20 backdrop-blur-2xl border border-white/10 shadow-xl;
+    @apply bg-card/30 backdrop-blur-2xl border border-white/10 shadow-xl;
   }
+
   .hover-lift {
     @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  /* 🔥 Optional Noise Layer */
+  .noise {
+    position: fixed;
+    inset: 0;
+    background-image: url('/noise.png');
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
   }
 }
