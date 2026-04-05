@@ -85,7 +85,12 @@ const HeroSection = () => {
               <MagneticButton
                 href="/resume.pdf"
                 strength={0.4}
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-white/10 bg-white/5 text-white font-semibold text-sm hover:border-primary/40 hover:scale-105 transition"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl 
+border border-border 
+bg-muted/50 dark:bg-white/5 
+text-foreground 
+font-semibold text-sm 
+hover:border-primary/40 hover:scale-105 transition"
               >
                 <FileDown size={16} />
                 Resume
