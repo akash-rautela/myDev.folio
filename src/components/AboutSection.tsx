@@ -114,7 +114,8 @@ const AboutSection = () => {
             {/* CTA */}
             <div className="flex gap-4">
               <a
-                href="/resume.pdf"
+                target="_blank"
+                href="/dsResume.pdf"
                 className="flex items-center gap-2 bg-yellow-400 text-black px-5 py-2 rounded-xl font-medium hover:scale-105 transition"
               >
                 <FileDown size={16} />
