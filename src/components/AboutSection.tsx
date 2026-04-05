@@ -54,7 +54,7 @@ const AboutSection = () => {
               </h2>
 
               {/* Emerging Cards */}
-              <AnimatePresence>
+              {/* <AnimatePresence>
                 {active && (
                   <>
                     {hoverCards.map((card, i) => {
@@ -103,7 +103,7 @@ const AboutSection = () => {
                     })}
                   </>
                 )}
-              </AnimatePresence>
+              </AnimatePresence> */}
             </div>
 
             {/* Text */}
