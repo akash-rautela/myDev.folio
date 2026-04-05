@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import {
   Code,
   Brain,
@@ -70,17 +70,16 @@ const categories: Category[] = [
 const SkillsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
-  const [hovered, setHovered] = useState(false);
 
   return (
-    <section
-      id="skills"
-      className="pt-16 pb-20 px-6"
-      ref={ref}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <div className="container mx-auto max-w-6xl">
+    <section id="skills" className="relative pt-20 pb-24 px-6 overflow-hidden" ref={ref}>
+      
+      {/* 🔥 BACKGROUND GLOW (tech vibe) */}
+      <div className="absolute inset-0 pointer-events-none flex justify-center">
+        <div className="w-[600px] h-[600px] bg-primary/10 blur-[140px] rounded-full" />
+      </div>
+
+      <div className="container mx-auto max-w-6xl relative z-10">
         
         {/* Title */}
         <motion.div
@@ -93,7 +92,7 @@ const SkillsSection = () => {
             Skills
           </span>
 
-          <h2 className="text-4xl font-bold mt-3 mb-14 bg-gradient-to-r from-foreground via-muted-foreground to-primary bg-clip-text text-transparent">
+          <h2 className="text-4xl font-bold mt-3 mb-16 bg-gradient-to-r from-foreground via-muted-foreground to-primary bg-clip-text text-transparent">
             What I work with
           </h2>
         </motion.div>
@@ -107,11 +106,17 @@ const SkillsSection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <GlowCard className="h-full group p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+              <GlowCard
+                className="h-full group p-6 rounded-2xl border border-border 
+                bg-card/60 backdrop-blur-md 
+                transition-all duration-300 
+                hover:-translate-y-3 hover:shadow-2xl"
+              >
                 
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center 
+                  group-hover:scale-110 transition">
                     <category.icon size={20} className="text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground">
@@ -121,31 +126,22 @@ const SkillsSection = () => {
 
                 {/* Skills */}
                 <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill, idx) => (
+                  {category.skills.map((skill) => (
                     <motion.div
                       key={skill.name}
-                      animate={
-                        hovered
-                          ? {
-                              y: [-2, -6, -2],
-                            }
-                          : { y: 0 }
-                      }
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: idx * 0.2,
-                      }}
+                      whileHover={{ scale: 1.08, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                       className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium
                       bg-muted text-muted-foreground border border-border
                       hover:bg-primary/10 hover:text-primary hover:border-primary/30
-                      transition-all duration-300"
+                      transition-all duration-300 cursor-pointer"
                     >
                       <span className="opacity-80">{skill.icon}</span>
                       <span>{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
+
               </GlowCard>
             </motion.div>
           ))}

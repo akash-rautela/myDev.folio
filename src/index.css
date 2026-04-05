@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.light .glass {
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
+}
 @layer base {
   :root {
     --background: 210 40% 98%;

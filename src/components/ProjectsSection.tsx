@@ -65,11 +65,11 @@ const projects: Project[] = [
     demo: '#',
   },
   {
-    title: 'myDev.folio',
+    title: 'Akash.dev Portfolio',
     description: 'Designed and developed a personal portfolio using React, showcasing projects, skills, and interactive UI with responsive design and modern animations.',
     stack: ['React', 'Tailwind CSS', 'Bootstrap', 'EmailJS', 'OpenAI API'],
     category: 'web',
-    github: 'https://github.com/akash-rautela/myDev.folio',
+    github: 'https://github.com/akash-rautela/myDev.folio', 
     demo: 'https://my-dev-folio-six.vercel.app/',
   },
   {

@@ -30,36 +30,37 @@ const HeroSection = () => {
         className="relative z-10 text-center max-w-3xl"
       >
         {/* 👋 Intro */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-sm text-muted-foreground mb-4"
-        >
-          Hey, I'm Akash 👋
-        </motion.p>
+<motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.2 }}
+  className="text-sm text-muted-foreground mb-4"
+>
+  Full-Stack Developer & AI Enthusiast
+</motion.p>
 
-        {/* 🔥 Name */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-5xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent"
-        >
-          Building Modern Web Experiences
-        </motion.h1>
+{/* 🔥 NAME (MAIN FOCUS) */}
+<motion.h1
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4 }}
+  className="text-5xl md:text-7xl font-bold leading-tight mb-4"
+>
+  Akash Singh {" "}
+  <span className="bg-gradient-to-r from-primary to-yellow-400 bg-clip-text text-transparent">
+    Rautela
+  </span>
+</motion.h1>
 
-        {/* 💬 Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-6 text-lg text-muted-foreground"
-        >
-          Full-stack developer & AI enthusiast crafting scalable,
-          high-performance applications.
-        </motion.p>
-
+{/* 💬 Tagline */}
+<motion.h2
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  className="text-xl md:text-2xl text-muted-foreground"
+>
+  Building Modern Web Experiences
+</motion.h2>
         {/* 🚀 CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

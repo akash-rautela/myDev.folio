@@ -16,7 +16,7 @@ const Index = () => {
 
   return (
     // <div className="relative z-10 min-h-screen bg-background text-foreground">
-    <div className="relative z-10 min-h-screen bg-background text-foreground">
+    <div className="relative z-10 min-h-screen dark:bg-background text-foreground">
       <CursorGlow />
       <Navbar isDark={isDark} toggleTheme={toggle} />
       <HeroSection />

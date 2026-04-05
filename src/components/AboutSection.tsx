@@ -1,126 +1,77 @@
-import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Code2, Brain, Rocket, Linkedin, FileDown } from 'lucide-react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
-const hoverCards = [
-  { icon: Code2, title: 'Full-Stack', desc: 'React, Next.js, Node.js', color: 'from-blue-500/20 to-cyan-400/20' },
-  { icon: Brain, title: 'AI / ML', desc: 'Python, ML Models, Data', color: 'from-purple-500/20 to-pink-400/20' },
-  { icon: Rocket, title: 'Projects', desc: '10+ builds', color: 'from-yellow-400/20 to-orange-400/20' },
-  { icon: Code2, title: 'Focus', desc: 'Scalable apps', color: 'from-green-400/20 to-emerald-400/20' },
+const cards = [
+  { icon: Code2, title: 'Full-Stack', desc: 'React, Next.js, Node.js' },
+  { icon: Brain, title: 'AI / ML', desc: 'Python, ML Models' },
+  { icon: Rocket, title: 'Projects', desc: '10+ builds' },
 ];
 
 const AboutSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
-  const [active, setActive] = useState(false);
 
   return (
-    <section id="about" className="pt-24 pb-20 px-6" ref={ref}>
-      <div className="container mx-auto max-w-6xl">
+    <section id="about" className="pt-24 pb-20 px-6 relative overflow-hidden" ref={ref}>
+      
+      {/* 🔥 Background Glow */}
+      {/* <div className="absolute inset-0 flex justify-center pointer-events-none">
+        <div className="w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full" />
+      </div> */}
+
+      <div className="container mx-auto max-w-6xl relative z-10">
+
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
           className="grid md:grid-cols-2 gap-12 items-center"
         >
-          {/* Avatar */}
-          <motion.div whileHover={{ scale: 1.05 }} className="flex justify-center md:justify-start">
-            <Avatar className="w-36 h-36 ring-2 ring-yellow-400/30 shadow-[0_0_60px_rgba(255,200,0,0.25)]">
-              <AvatarImage src="/myImg.jpeg" />
-              <AvatarFallback>AS</AvatarFallback>
-            </Avatar>
-          </motion.div>
 
-          {/* Content */}
-          <div className="relative">
-            {/* <span className="text-xs uppercase tracking-widest text-primary">
-              About
-            </span> */}
+          {/* LEFT SIDE (Avatar + floating cards) */}
+          <div className="relative flex justify-center md:justify-start">
 
-            {/* Hover / Click trigger */}
-            <div
-              className="relative inline-block"
-              onMouseEnter={() => setActive(true)}
-              onMouseLeave={() => setActive(false)}
-              onClick={() => setActive(!active)}
-            >
-              <h2 className="text-4xl font-bold mt-2 mb-6 cursor-pointer 
-              bg-gradient-to-r 
-              from-foreground via-yellow-500 to-yellow-600
-              dark:from-white dark:via-yellow-200 dark:to-yellow-400
-              bg-clip-text text-transparent">
-                A bit about me
-              </h2>
+            {/* Avatar */}
+            <motion.div whileHover={{ scale: 1.05 }}>
+              <Avatar className="w-36 h-36 ring-2 ring-yellow-400/30 shadow-[0_0_60px_rgba(255,200,0,0.25)]">
+                <AvatarImage src="/myImg.jpeg" />
+                <AvatarFallback>AS</AvatarFallback>
+              </Avatar>
+            </motion.div>
 
-              {/* Emerging Cards */}
-              {/* <AnimatePresence>
-                {active && (
-                  <>
-                    {hoverCards.map((card, i) => {
-                      const positions = [
-                        { x: -140, y: -120 },
-                        { x: 120, y: -140 },
-                        { x: -100, y: -220 },
-                        { x: 100, y: -240 },
-                      ];
+          </div>
 
-                      return (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, x: 0, y: 0, scale: 0.5 }}
-                          animate={{
-                            opacity: 1,
-                            x: positions[i].x,
-                            y: positions[i].y,
-                            scale: 1,
-                          }}
-                          exit={{ opacity: 0, scale: 0.5 }}
-                          transition={{
-                            type: 'spring',
-                            stiffness: 120,
-                            damping: 12,
-                            delay: i * 0.05,
-                          }}
-                          className={`absolute left-1/2 top-1/2 
-                          -translate-x-1/2 -translate-y-1/2
-                          w-[150px] p-3 rounded-xl 
-                          bg-gradient-to-br ${card.color}
-                          bg-muted/40 dark:bg-transparent
-                          backdrop-blur-xl border border-border
-                          shadow-[0_10px_40px_rgba(0,0,0,0.25)]
-                          hover:scale-105 transition`}
-                        >
-                          <card.icon size={16} className="mb-1 text-foreground" />
-                          <p className="text-xs font-semibold text-foreground">
-                            {card.title}
-                          </p>
-                          <p className="text-[10px] text-muted-foreground">
-                            {card.desc}
-                          </p>
-                        </motion.div>
-                      );
-                    })}
-                  </>
-                )}
-              </AnimatePresence> */}
-            </div>
+          {/* RIGHT SIDE */}
+          <div>
+            <h2 className="text-4xl font-bold mb-6 
+            bg-gradient-to-r from-foreground to-primary 
+            bg-clip-text text-transparent">
+              About Me
+            </h2>
 
-            {/* Text */}
             <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mb-6">
-              Hi, I’m <span className="text-yellow-500 font-medium">Akash</span> 👋 — a 
-              <span className="text-yellow-500 font-medium"> Full-Stack Developer</span> 
-              and data enthusiast. I build 
-              <span className="text-yellow-500 font-medium"> scalable applications</span> 
-              and intelligent systems that solve 
-              <span className="text-yellow-500 font-medium"> real-world problems</span>.
+              Hi, I’m <span className="text-primary font-medium">Akash</span> 👋 — a 
+              <span className="text-primary font-medium"> Full-Stack Developer</span> 
+              and AI enthusiast. I build 
+              <span className="text-primary font-medium"> scalable web applications</span> 
+              and intelligent systems focused on solving 
+              <span className="text-primary font-medium"> real-world problems</span>.
             </p>
 
+            {/* Stats */}
+            <div className="flex gap-6 text-sm text-muted-foreground mb-6">
+              <span>🚀 10+ Projects</span>
+              <span>💻 Full-Stack</span>
+              <span>📊 AI/ML</span>
+            </div>
+
             {/* CTA */}
-            <div className="flex gap-4">
+            <div className="flex gap-4 flex-wrap">
               <a
                 href="/resume.pdf"
-                className="flex items-center gap-2 bg-yellow-400 text-black px-5 py-2 rounded-xl font-medium hover:scale-105 transition"
+                className="flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2 rounded-xl font-medium hover:scale-105 transition"
               >
                 <FileDown size={16} />
                 Resume
@@ -129,13 +80,14 @@ const AboutSection = () => {
               <a
                 href="https://linkedin.com/in/akash-singh-rautela"
                 target="_blank"
-                className="flex items-center gap-2 border border-border px-5 py-2 rounded-xl hover:border-yellow-400/40 transition"
+                className="flex items-center gap-2 border border-border px-5 py-2 rounded-xl hover:border-primary/40 transition"
               >
                 <Linkedin size={16} />
                 LinkedIn
               </a>
             </div>
           </div>
+
         </motion.div>
       </div>
     </section>
