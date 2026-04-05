@@ -115,12 +115,23 @@
 }
 
 .bg-animated {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
   background: linear-gradient(
     120deg,
-    rgba(255, 200, 0, 0.15),
-    rgba(0, 150, 255, 0.1),
-    rgba(255, 200, 0, 0.15)
+    rgba(255, 200, 0, 0.25),
+    rgba(0, 150, 255, 0.2),
+    rgba(255, 200, 0, 0.25)
   );
+
   background-size: 200% 200%;
-  animation: gradientMove 15s ease infinite;
+  animation: gradientMove 12s ease infinite;
+
+  opacity: 0.8; /* 🔥 increase this */
+}
+.bg-animated {
+  opacity: 1;
 }
