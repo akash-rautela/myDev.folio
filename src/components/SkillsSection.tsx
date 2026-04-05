@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import {
   Code,
   Brain,
@@ -17,7 +17,6 @@ interface Skill {
   name: string;
   icon?: React.ReactNode;
   proficiency: Proficiency;
-  highlight?: boolean;
 }
 
 interface Category {
@@ -71,9 +70,16 @@ const categories: Category[] = [
 const SkillsSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
+  const [hovered, setHovered] = useState(false);
 
   return (
-    <section id="skills" className="pt-16 pb-20 px-6" ref={ref}>
+    <section
+      id="skills"
+      className="pt-16 pb-20 px-6"
+      ref={ref}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <div className="container mx-auto max-w-6xl">
         
         {/* Title */}
@@ -87,7 +93,6 @@ const SkillsSection = () => {
             Skills
           </span>
 
-          {/* ✅ FIXED GRADIENT */}
           <h2 className="text-4xl font-bold mt-3 mb-14 bg-gradient-to-r from-foreground via-muted-foreground to-primary bg-clip-text text-transparent">
             What I work with
           </h2>
@@ -102,36 +107,43 @@ const SkillsSection = () => {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              {/* ✅ FIXED CARD COLORS */}
-              <GlowCard className="h-full group p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-md hover:border-primary/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg">
+              <GlowCard className="h-full group p-6 rounded-2xl border border-border bg-card/60 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                 
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition">
+                  <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center">
                     <category.icon size={20} className="text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold tracking-wide text-foreground">
+                  <h3 className="text-lg font-semibold text-foreground">
                     {category.title}
                   </h3>
                 </div>
 
                 {/* Skills */}
                 <div className="flex flex-wrap gap-3">
-                  {category.skills.map((skill) => (
-                    <div
+                  {category.skills.map((skill, idx) => (
+                    <motion.div
                       key={skill.name}
-                      className={`
-                        flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium transition-all duration-300
-                        ${
-                          skill.highlight
-                            ? 'bg-primary/15 text-primary border border-primary/30 shadow-sm'
-                            : 'bg-muted text-muted-foreground border border-border hover:bg-muted/70'
-                        }
-                      `}
+                      animate={
+                        hovered
+                          ? {
+                              y: [-2, -6, -2],
+                            }
+                          : { y: 0 }
+                      }
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: idx * 0.2,
+                      }}
+                      className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium
+                      bg-muted text-muted-foreground border border-border
+                      hover:bg-primary/10 hover:text-primary hover:border-primary/30
+                      transition-all duration-300"
                     >
                       <span className="opacity-80">{skill.icon}</span>
                       <span>{skill.name}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </GlowCard>
