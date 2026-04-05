@@ -38,20 +38,22 @@ const AboutSection = () => {
               About
             </span> */}
 
-            {/* 🔥 Hover / Click trigger */}
+            {/* Hover / Click trigger */}
             <div
               className="relative inline-block"
               onMouseEnter={() => setActive(true)}
               onMouseLeave={() => setActive(false)}
-              onClick={() => setActive(!active)} // mobile support
+              onClick={() => setActive(!active)}
             >
               <h2 className="text-4xl font-bold mt-2 mb-6 cursor-pointer 
-              bg-gradient-to-r from-white via-yellow-200 to-yellow-400 
+              bg-gradient-to-r 
+              from-foreground via-yellow-500 to-yellow-600
+              dark:from-white dark:via-yellow-200 dark:to-yellow-400
               bg-clip-text text-transparent">
                 A bit about me
               </h2>
 
-              {/* 🔥 Emerging Cards */}
+              {/* Emerging Cards */}
               <AnimatePresence>
                 {active && (
                   <>
@@ -84,12 +86,15 @@ const AboutSection = () => {
                           -translate-x-1/2 -translate-y-1/2
                           w-[150px] p-3 rounded-xl 
                           bg-gradient-to-br ${card.color}
-                          backdrop-blur-xl border border-white/10 
-                          shadow-[0_10px_40px_rgba(0,0,0,0.4)]
+                          bg-muted/40 dark:bg-transparent
+                          backdrop-blur-xl border border-border
+                          shadow-[0_10px_40px_rgba(0,0,0,0.25)]
                           hover:scale-105 transition`}
                         >
-                          <card.icon size={16} className="mb-1 text-white" />
-                          <p className="text-xs font-semibold">{card.title}</p>
+                          <card.icon size={16} className="mb-1 text-foreground" />
+                          <p className="text-xs font-semibold text-foreground">
+                            {card.title}
+                          </p>
                           <p className="text-[10px] text-muted-foreground">
                             {card.desc}
                           </p>
@@ -103,19 +108,18 @@ const AboutSection = () => {
 
             {/* Text */}
             <p className="text-muted-foreground text-lg leading-relaxed max-w-xl mb-6">
-              Hi, I’m <span className="text-yellow-400 font-medium">Akash</span> 👋 — a 
-              <span className="text-yellow-400 font-medium"> Full-Stack Developer</span> 
+              Hi, I’m <span className="text-yellow-500 font-medium">Akash</span> 👋 — a 
+              <span className="text-yellow-500 font-medium"> Full-Stack Developer</span> 
               and data enthusiast. I build 
-              <span className="text-yellow-400 font-medium"> scalable applications</span> 
+              <span className="text-yellow-500 font-medium"> scalable applications</span> 
               and intelligent systems that solve 
-              <span className="text-yellow-400 font-medium"> real-world problems</span>.
+              <span className="text-yellow-500 font-medium"> real-world problems</span>.
             </p>
 
             {/* CTA */}
             <div className="flex gap-4">
               <a
-                target="_blank"
-                href="/dsResume.pdf"
+                href="/resume.pdf"
                 className="flex items-center gap-2 bg-yellow-400 text-black px-5 py-2 rounded-xl font-medium hover:scale-105 transition"
               >
                 <FileDown size={16} />
@@ -125,7 +129,7 @@ const AboutSection = () => {
               <a
                 href="https://linkedin.com/in/akash-singh-rautela"
                 target="_blank"
-                className="flex items-center gap-2 border border-white/10 px-5 py-2 rounded-xl hover:border-yellow-400/40 transition"
+                className="flex items-center gap-2 border border-border px-5 py-2 rounded-xl hover:border-yellow-400/40 transition"
               >
                 <Linkedin size={16} />
                 LinkedIn
