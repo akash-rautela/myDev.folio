@@ -70,7 +70,10 @@ const Navbar = ({ isDark, toggleTheme }: NavbarProps) => {
         >
           {/* Logo */}
           <h1
-            onClick={() => handleNavClick('#about')}
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setMobileOpen(false);
+            }}
             className="font-semibold text-lg cursor-pointer hover:scale-105 transition"
           >
             <span className="text-gradient">Akash</span>.dev
