@@ -102,9 +102,10 @@ const SkillsSection = () => {
           {categories.map((category, i) => (
             <motion.div
               key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
             >
               <GlowCard
                 className="h-full group p-6 rounded-2xl border border-border 

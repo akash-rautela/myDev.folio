@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import MouseGlow from "@/components/MouseGlow";
+import FloatingParticles from "@/components/FloatingParticles";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -17,6 +18,7 @@ const App = () => (
       {/* 🔥 BACKGROUND SYSTEM */}
       <div className="noise" />
       <div className="bg-animated fixed inset-0 z-0" />
+      <FloatingParticles />
       <MouseGlow />
 
       {/* 🔥 MAIN CONTENT */}

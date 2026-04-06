@@ -119,10 +119,11 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
       exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4, delay: index * 0.08 }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.15 }}
     >
       <GlowCard className="flex flex-col h-full min-h-80">
         <h3 className="text-lg font-bold mb-2">{project.title}</h3>

@@ -1,17 +1,9 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { FileDown, ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { useRef } from "react";
 
 const HeroSection = () => {
   const ref = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
 
   return (
     <section
@@ -20,27 +12,26 @@ const HeroSection = () => {
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 flex justify-center pointer-events-none overflow-hidden" style={{ transform: 'translateZ(0)' }}>
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             opacity: [0.2, 0.4, 0.2]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           style={{ willChange: "opacity" }}
-          className="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-primary/30 blur-[120px] rounded-full" 
+          className="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-primary/30 blur-[120px] rounded-full"
         />
-        <motion.div 
-          animate={{ 
+        <motion.div
+          animate={{
             opacity: [0.15, 0.35, 0.15]
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
           style={{ willChange: "opacity" }}
-          className="absolute top-[20%] -right-[10%] w-[600px] h-[600px] bg-emerald-500/20 blur-[140px] rounded-full" 
+          className="absolute top-[20%] -right-[10%] w-[600px] h-[600px] bg-emerald-500/20 blur-[140px] rounded-full"
         />
       </div>
 
       {/* Main Content */}
       <motion.div
-        style={{ y, opacity }}
         className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center"
       >
         <motion.div
@@ -113,7 +104,7 @@ const HeroSection = () => {
         </motion.div>
 
         {/* Social Links */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.8 }}

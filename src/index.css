@@ -75,8 +75,8 @@
 
   .dark body {
     background:
-      radial-gradient(circle at 20% 20%, rgba(255, 200, 0, 0.2), transparent 40%),
-      radial-gradient(circle at 80% 0%, rgba(0, 150, 255, 0.15), transparent 40%),
+      radial-gradient(circle at 20% 20%, rgba(255, 200, 0, 0.05), transparent 40%),
+      radial-gradient(circle at 80% 0%, rgba(0, 150, 255, 0.05), transparent 40%),
       hsl(var(--background));
   }
 
@@ -135,10 +135,11 @@
   background-size: 200% 200%;
   animation: gradientMove 12s ease infinite;
 
-  opacity: 0.8; /* 🔥 increase this */
-}
-.bg-animated {
   opacity: 1;
+}
+
+.dark .bg-animated {
+  opacity: 0.1; /* Drastically drop opacity in dark mode to preserve deep blackness */
 }
 
 .input-style {
