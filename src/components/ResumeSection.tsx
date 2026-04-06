@@ -25,9 +25,9 @@ const ResumeSection = () => {
     <section className="py-16 px-6 relative overflow-hidden" ref={ref}>
       
       {/* 🔥 Background Glow */}
-      <div className="absolute inset-0 flex justify-center pointer-events-none">
+      {/* <div className="absolute inset-0 flex justify-center pointer-events-none">
         <div className="w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full" />
-      </div>
+      </div> */}
 
       <div className="container mx-auto max-w-5xl relative z-10">
         

@@ -75,9 +75,9 @@ const SkillsSection = () => {
     <section id="skills" className="relative pt-20 pb-24 px-6 overflow-hidden" ref={ref}>
       
       {/* 🔥 BACKGROUND GLOW (tech vibe) */}
-      <div className="absolute inset-0 pointer-events-none flex justify-center">
+      {/* <div className="absolute inset-0 pointer-events-none flex justify-center">
         <div className="w-[600px] h-[600px] bg-primary/10 blur-[140px] rounded-full" />
-      </div>
+      </div> */}
 
       <div className="container mx-auto max-w-6xl relative z-10">
         

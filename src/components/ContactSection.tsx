@@ -10,6 +10,11 @@ import {
   Github,
   Code2,
   Brain,
+  Terminal,
+  Cpu,
+  Database,
+  Globe,
+  Coffee,
 } from 'lucide-react';
 
 const ContactSection = () => {
@@ -47,37 +52,43 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-24 px-6 relative overflow-hidden" ref={ref}>
       
-      {/* 🔥 Glow */}
-      <div className="absolute inset-0 flex justify-center pointer-events-none">
-        <div className="w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full" />
+      {/* 🔥 Subtle Centered Glow */}
+      <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
+        <div className="w-[400px] h-[400px] bg-primary/15 blur-[100px] rounded-full" />
       </div>
 
-      {/* 🔥 Floating Icons (UNCHANGED) */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* 🔥 Floating Icons */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden hidden md:block">
         {[
           { Icon: Code2, x: '10%', y: '20%' },
-          { Icon: Brain, x: '80%', y: '30%' },
-          { Icon: Github, x: '20%', y: '70%' },
-          { Icon: Linkedin, x: '75%', y: '75%' },
-          { Icon: Mail, x: '50%', y: '10%' },
+          { Icon: Brain, x: '80%', y: '25%' },
+          { Icon: Github, x: '20%', y: '75%' },
+          { Icon: Linkedin, x: '85%', y: '80%' },
+          { Icon: Mail, x: '45%', y: '10%' },
+          { Icon: Terminal, x: '90%', y: '55%' },
+          { Icon: Cpu, x: '8%', y: '45%' },
+          { Icon: Database, x: '15%', y: '90%' },
+          { Icon: Globe, x: '60%', y: '85%' },
+          { Icon: Coffee, x: '85%', y: '5%' }
         ].map((item, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0 }}
             animate={{
-              opacity: [0.2, 0.5, 0.2],
+              opacity: [0.3, 0.7, 0.3],
               y: [0, -20, 0],
-              rotate: [0, 10, -10, 0],
+              rotate: [0, 15, -10, 0],
             }}
             transition={{
-              duration: 6 + i,
+              duration: 8 + (i % 5) * 2,
               repeat: Infinity,
               ease: 'easeInOut',
+              delay: i * 0.5,
             }}
             className="absolute"
             style={{ left: item.x, top: item.y }}
           >
-            <item.Icon size={22 + i * 4} className="text-primary/20" />
+            <item.Icon size={24 + (i % 3) * 8} className="text-primary/40" />
           </motion.div>
         ))}
       </div>
