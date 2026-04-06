@@ -21,7 +21,7 @@ interface Skill {
 
 interface Category {
   title: string;
-  icon: React.ComponentType<{ size?: number; className?: string }>;
+  icon: React.ElementType;
   skills: Skill[];
 }
 
@@ -108,9 +108,7 @@ const SkillsSection = () => {
             >
               <GlowCard
                 className="h-full group p-6 rounded-2xl border border-border 
-                bg-card/60 backdrop-blur-md 
-                transition-all duration-300 
-                hover:-translate-y-3 hover:shadow-2xl"
+                bg-card/60 backdrop-blur-md"
               >
                 
                 {/* Header */}
@@ -134,7 +132,7 @@ const SkillsSection = () => {
                       className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs font-medium
                       bg-muted text-muted-foreground border border-border
                       hover:bg-primary/10 hover:text-primary hover:border-primary/30
-                      transition-all duration-300 cursor-pointer"
+                      transition-colors duration-300 cursor-pointer"
                     >
                       <span className="opacity-80">{skill.icon}</span>
                       <span>{skill.name}</span>

@@ -5,10 +5,7 @@ const Footer = () => {
   return (
     <footer className="relative border-t border-border py-12 px-6 overflow-hidden">
       
-      {/* 🔥 Background Glow */}
-      <div className="absolute inset-0 flex justify-center pointer-events-none">
-        <div className="w-[400px] h-[400px] bg-primary/10 blur-[120px] rounded-full" />
-      </div>
+
 
       <div className="container mx-auto max-w-5xl flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
 
