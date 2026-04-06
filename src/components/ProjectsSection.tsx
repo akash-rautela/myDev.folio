@@ -130,7 +130,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
         <p className="text-sm text-muted-foreground mb-4 flex-1 leading-relaxed">{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-5">
           {project.stack.map(tech => (
-            <span key={tech} className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-primary/10 text-primary">
+            <span key={tech} className="text-[11px] font-medium px-2.5 py-1 rounded-md bg-primary/10 text-primary cursor-default hover:bg-primary/20 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-300">
               {tech}
             </span>
           ))}

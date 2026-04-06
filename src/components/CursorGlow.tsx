@@ -16,7 +16,7 @@ const CursorGlow = () => {
   return (
     <div
       ref={glowRef}
-      className="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full opacity-20 blur-[80px] bg-primary transition-[left,top] duration-100 ease-out hidden md:block"
+      className="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rounded-full opacity-30 blur-[50px] bg-primary transition-[left,top] duration-100 ease-out hidden md:block"
     />
   );
 };

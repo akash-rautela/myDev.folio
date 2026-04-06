@@ -8,7 +8,6 @@ import StatsSection from '@/components/StatsSection';
 import ContactSection from '@/components/ContactSection';
 import QuickConnect from '@/components/QuickConnect';
 import Footer from '@/components/Footer';
-import CursorGlow from '@/components/CursorGlow';
 import { useTheme } from '@/hooks/useTheme';
 
 const Index = () => {
@@ -16,7 +15,6 @@ const Index = () => {
 
   return (
     <div className="relative z-10 min-h-screen text-foreground">
-      <CursorGlow />
       <Navbar isDark={isDark} toggleTheme={toggle} />
       <HeroSection />
       <AboutSection />

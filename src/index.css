@@ -34,11 +34,11 @@
   }
 
   .dark {
-    --background: 220 15% 6%;
+    --background: 220 10% 2%;
     --foreground: 40 15% 92%;
-    --card: 220 15% 9%;
+    --card: 220 10% 4%;
     --card-foreground: 40 15% 92%;
-    --popover: 220 15% 9%;
+    --popover: 220 10% 4%;
     --popover-foreground: 40 15% 92%;
     --primary: 38 92% 50%;
     --primary-foreground: 30 10% 8%;
@@ -63,14 +63,46 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent; /* Remove blue flash on mobile tap */
   }
 
+  /* Prevent text selection globally to enhance app-like feel */
   body {
+    user-select: none;
+    -webkit-user-select: none;
     @apply text-foreground font-body antialiased;
     background:
       radial-gradient(circle at 20% 20%, rgba(255, 200, 0, 0.15), transparent 40%),
       radial-gradient(circle at 80% 0%, rgba(0, 150, 255, 0.1), transparent 40%),
       hsl(var(--background));
+  }
+
+  /* Allow inputs to maintain text selection */
+  input, textarea {
+    user-select: auto;
+    -webkit-user-select: auto;
+  }
+
+  /* 💎 Custom Text Selection */
+  ::selection {
+    background-color: hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+  }
+
+  /* 💎 Custom Webkit Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.2);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
   }
 
   .dark body {
