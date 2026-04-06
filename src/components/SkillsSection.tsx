@@ -50,8 +50,8 @@ const categories: Category[] = [
       { name: 'Scikit-Learn', icon: <Brain size={14} />, proficiency: getProficiency(75) },
       { name: 'Pandas / NumPy', icon: <Database size={14} />, proficiency: getProficiency(85) },
       { name: 'Matplotlib', icon: <Brain size={14} />, proficiency: getProficiency(70) },
-      { name: 'IBM Watson / SPSS', icon: <Brain size={14} />, proficiency: getProficiency(85) },
-      { name: 'Power BI / Tableau', icon: <Database size={14} />, proficiency: getProficiency(70) },
+      { name: 'IBM Watson', icon: <Brain size={14} />, proficiency: getProficiency(85) },
+      { name: 'Power BI', icon: <Database size={14} />, proficiency: getProficiency(70) },
     ],
   },
   {
@@ -59,6 +59,7 @@ const categories: Category[] = [
     icon: Wrench,
     skills: [
       { name: 'Git / GitHub', icon: <GitBranch size={14} />, proficiency: getProficiency(90) },
+      { name: 'VS Code', icon: <Code size={14} />, proficiency: getProficiency(95) },
       { name: 'SQL / MongoDB', icon: <Database size={14} />, proficiency: getProficiency(82) },
       { name: 'IBM Cognos', icon: <Brain size={14} />, proficiency: getProficiency(85) },
       { name: 'Power BI', icon: <Database size={14} />, proficiency: getProficiency(70) },
@@ -106,11 +107,9 @@ const SkillsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
+              className="h-full flex"
             >
-              <GlowCard
-                className="h-full group p-6 rounded-2xl border border-border 
-                bg-card/60 backdrop-blur-md"
-              >
+              <GlowCard className="w-full flex flex-1 flex-col group">
                 
                 {/* Header */}
                 <div className="flex items-center gap-3 mb-6">

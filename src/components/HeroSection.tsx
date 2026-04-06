@@ -10,25 +10,7 @@ const HeroSection = () => {
       ref={ref}
       className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6 pt-20"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 flex justify-center pointer-events-none overflow-hidden" style={{ transform: 'translateZ(0)' }}>
-        <motion.div
-          animate={{
-            opacity: [0.2, 0.4, 0.2]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "opacity" }}
-          className="absolute -top-[10%] -left-[10%] w-[500px] h-[500px] bg-primary/30 blur-[120px] rounded-full"
-        />
-        <motion.div
-          animate={{
-            opacity: [0.15, 0.35, 0.15]
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          style={{ willChange: "opacity" }}
-          className="absolute top-[20%] -right-[10%] w-[600px] h-[600px] bg-emerald-500/20 blur-[140px] rounded-full"
-        />
-      </div>
+      {/* Background Elements Handled By Global Network Canvas */}
 
       {/* Main Content */}
       <motion.div
