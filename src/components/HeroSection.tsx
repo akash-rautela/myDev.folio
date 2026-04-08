@@ -77,7 +77,7 @@ const HeroSection = () => {
           </a>
 
           <a
-            href="/resume.pdf"
+            href="/dsResume.pdf"
             className="group flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-full border border-border bg-background/50 backdrop-blur-md text-foreground hover:bg-accent hover:text-accent-foreground transition-all duration-300"
           >
             <FileDown className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
